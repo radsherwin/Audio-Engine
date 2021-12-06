@@ -301,59 +301,59 @@ void Game::Update()
 
 	}
 
-	static bool key5_state = false;
-	if (key->GetKeyState(AZUL_KEY::KEY_5) && !key5_state)
-	{
-		key5_state = true;
-		//reset timer
-		Audio::UnloadPriorityTable();
-		Audio::UnloadWaveTable();
-		Audio::StopTimer();
+	//static bool key5_state = false;
+	//if (key->GetKeyState(AZUL_KEY::KEY_5) && !key5_state)
+	//{
+	//	key5_state = true;
+	//	//reset timer
+	//	Audio::UnloadPriorityTable();
+	//	Audio::UnloadWaveTable();
+	//	Audio::StopTimer();
 
-		User_File_CB* userCB = Audio::CreateCB(SndId::BEETHOVEN_ID, Wave::ID::Beethoven);
+	//	User_File_CB* userCB = Audio::CreateCB(SndId::BEETHOVEN_ID, Wave::ID::Beethoven);
 
-		Audio::Load(Audio::Blocking::LOAD, Wave::ID::Electro, "../Assets/Electro_mono.wav");
-		Audio::Load(Audio::Blocking::LOAD, Wave::ID::Alarm, "../Assets/Alert_mono.wav");
-		Audio::Load(Audio::Async::LOAD, Wave::ID::Beethoven, "../Assets/Beethoven_stereo.wav", userCB);
+	//	Audio::Load(Audio::Blocking::LOAD, Wave::ID::Electro, "../Assets/Electro_mono.wav");
+	//	Audio::Load(Audio::Blocking::LOAD, Wave::ID::Alarm, "../Assets/Alert_mono.wav");
+	//	Audio::Load(Audio::Async::LOAD, Wave::ID::Beethoven, "../Assets/Beethoven_stereo.wav", userCB);
 
-		Audio::CreateSnd(SndId::ELECTRO_ID, Wave::ID::Electro);
-		Audio::CreateSnd(SndId::ALARM_ID, Wave::ID::Alarm); //also loads playlist BTS
+	//	Audio::CreateSnd(SndId::ELECTRO_ID, Wave::ID::Electro);
+	//	Audio::CreateSnd(SndId::ALARM_ID, Wave::ID::Alarm); //also loads playlist BTS
 
-		Audio::WaveTableDump();
+	//	Audio::WaveTableDump();
 
-		Audio::Play(SndId::ELECTRO_ID);
-		Audio::Pan(SndId::ELECTRO_ID, 1.0f);
-		Audio::Volume(SndId::ELECTRO_ID, 0.1f);
+	//	Audio::Play(SndId::ELECTRO_ID);
+	//	Audio::Pan(SndId::ELECTRO_ID, 1.0f);
+	//	Audio::Volume(SndId::ELECTRO_ID, 0.1f);
 
-		Audio::Play(SndId::ALARM_ID);
-		Audio::Pan(SndId::ALARM_ID, -1.0f);
-		Audio::Volume(SndId::ALARM_ID, 0.1f);
+	//	Audio::Play(SndId::ALARM_ID);
+	//	Audio::Pan(SndId::ALARM_ID, -1.0f);
+	//	Audio::Volume(SndId::ALARM_ID, 0.1f);
 
-		Audio::StartTimer();
+	//	Audio::StartTimer();
 
-		Audio::Timer(Audio::AudioEvents::PAN, 5000, SndId::ALARM_ID, -1.0f);
-		Audio::Timer(Audio::AudioEvents::PLAY, 5000, SndId::ALARM_ID);
+	//	Audio::Timer(Audio::AudioEvents::PAN, 5000, SndId::ALARM_ID, -1.0f);
+	//	Audio::Timer(Audio::AudioEvents::PLAY, 5000, SndId::ALARM_ID);
 
-		Audio::Timer(Audio::AudioEvents::PAN, 10000, SndId::ALARM_ID, -1.0f);
-		Audio::Timer(Audio::AudioEvents::PLAY, 10000, SndId::ALARM_ID);
+	//	Audio::Timer(Audio::AudioEvents::PAN, 10000, SndId::ALARM_ID, -1.0f);
+	//	Audio::Timer(Audio::AudioEvents::PLAY, 10000, SndId::ALARM_ID);
 
-		Audio::Timer(Audio::AudioEvents::PAN, 15000, SndId::ALARM_ID, -1.0f);
-		Audio::Timer(Audio::AudioEvents::PLAY, 15000, SndId::ALARM_ID);
+	//	Audio::Timer(Audio::AudioEvents::PAN, 15000, SndId::ALARM_ID, -1.0f);
+	//	Audio::Timer(Audio::AudioEvents::PLAY, 15000, SndId::ALARM_ID);
 
-		Audio::Timer(Audio::AudioEvents::PAN, 20000, SndId::ALARM_ID, -1.0f);
-		Audio::Timer(Audio::AudioEvents::PLAY, 20000, SndId::ALARM_ID);
+	//	Audio::Timer(Audio::AudioEvents::PAN, 20000, SndId::ALARM_ID, -1.0f);
+	//	Audio::Timer(Audio::AudioEvents::PLAY, 20000, SndId::ALARM_ID);
 
-		Audio::Timer(Audio::AudioEvents::PAN, 25000, SndId::ALARM_ID, -1.0f);
-		Audio::Timer(Audio::AudioEvents::PLAY, 25000, SndId::ALARM_ID);
+	//	Audio::Timer(Audio::AudioEvents::PAN, 25000, SndId::ALARM_ID, -1.0f);
+	//	Audio::Timer(Audio::AudioEvents::PLAY, 25000, SndId::ALARM_ID);
 
-		Audio::Timer(Audio::AudioEvents::STOP, 60000, SndId::BEETHOVEN_ID);
+	//	Audio::Timer(Audio::AudioEvents::STOP, 60000, SndId::BEETHOVEN_ID);
 
-		Audio::Timer(Audio::AudioEvents::WAVE_TABLE_DUMP, 60000);
-		Audio::Timer(Audio::AudioEvents::UNLOAD_WAVE_TABLE, 60000);
-		Audio::Timer(Audio::AudioEvents::WAVE_TABLE_DUMP, 60000);
+	//	Audio::Timer(Audio::AudioEvents::WAVE_TABLE_DUMP, 60000);
+	//	Audio::Timer(Audio::AudioEvents::UNLOAD_WAVE_TABLE, 60000);
+	//	Audio::Timer(Audio::AudioEvents::WAVE_TABLE_DUMP, 60000);
 
-		Audio::Timer(Audio::AudioEvents::STOP_TIMER, 60000 );
-	}
+	//	Audio::Timer(Audio::AudioEvents::STOP_TIMER, 60000 );
+	//}
 }
 
 //-----------------------------------------------------------------------------
